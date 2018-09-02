@@ -59,13 +59,13 @@ public class Tutorial : MonoBehaviour {
             stage = 2;
             tutorialText.text = "Hold A or D in the air to do a flip! \n" +
                 "This will score you 50 points!";
-            initialScore = Int32.Parse(score.text);
+            initialScore = Int32.Parse(score.text.Split('+')[0]);
         }
     }
 
     void KickFlipCheck()
     {
-        if (Int32.Parse(score.text) >= initialScore + 50)
+        if (Int32.Parse(score.text.Split('+')[0]) >= initialScore + 50)
         {
             stage = 3;
             tutorialText.text = "Congratulations! You have the basic controls down! \n" +
