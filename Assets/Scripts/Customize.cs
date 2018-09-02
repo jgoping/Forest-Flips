@@ -14,5 +14,6 @@ public class Customize : MonoBehaviour
     {
         rend[0].material = colour;
         rend[1].material = colour;
+        SceneManager.LoadScene(1);
     }
 }
