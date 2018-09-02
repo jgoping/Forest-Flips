@@ -103,9 +103,16 @@ public class CarController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.collider.tag);
         if (collision.collider.tag == "Ground")
         {
+            if (transform.up.y > 0.9)
+            {
+                FindObjectOfType<Score>().TrickLanded(true);
+            }
+            else
+            {
+                FindObjectOfType<Score>().TrickLanded(false);
+            }
             jumping = false;
             rotating = false;
             rotateAmount = 0;
