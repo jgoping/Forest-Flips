@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class Tutorial : MonoBehaviour {
     private bool forward = false;
     private bool left = false;
     private bool right = false;
+    private int initialScore;
 
 	void Update () {
         if (stage == 0)
@@ -57,12 +59,13 @@ public class Tutorial : MonoBehaviour {
             stage = 2;
             tutorialText.text = "Hold A or D in the air to do a flip! \n" +
                 "This will score you 50 points!";
+            initialScore = Int32.Parse(score.text);
         }
     }
 
     void KickFlipCheck()
     {
-        if (score.text == "50")
+        if (Int32.Parse(score.text) >= initialScore + 50)
         {
             stage = 3;
             tutorialText.text = "Congratulations! You have the basic controls down! \n" +
