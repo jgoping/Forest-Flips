@@ -13,7 +13,7 @@ public class Score : MonoBehaviour {
         if (onRail)
         {
             bufferScore += 5;
-            score.text = curScore.ToString() + "+" + bufferScore.ToString();
+            UpdateScoreText();
         }
     }
 
@@ -33,7 +33,7 @@ public class Score : MonoBehaviour {
     public void KickFlip()
     {
         bufferScore += 50;
-        score.text = curScore.ToString() + "+" + bufferScore.ToString();
+        UpdateScoreText();
     }
 
     public void TrickLanded(Boolean landed)
@@ -43,6 +43,12 @@ public class Score : MonoBehaviour {
             curScore += bufferScore;
         }
         bufferScore = 0;
-        score.text = curScore.ToString() + "+" + bufferScore.ToString();
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
+    {
+        score.text = bufferScore > 0 ?
+            curScore.ToString() + "+" + bufferScore.ToString() : curScore.ToString();
     }
 }

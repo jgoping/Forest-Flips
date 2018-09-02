@@ -105,7 +105,7 @@ public class CarController : MonoBehaviour
     {
         if (collision.collider.tag == "Ground")
         {
-            if (transform.up.y > 0.9)
+            if (transform.up.y > 0.8)
             {
                 FindObjectOfType<Score>().TrickLanded(true);
             }

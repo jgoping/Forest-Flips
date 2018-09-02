@@ -278,7 +278,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0+0
+  m_Text: 0
 --- !u!222 &31460416
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2132,6 +2132,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011471836048, guid: 15fe8fe8baba70b4fb205558f136ce83,
     type: 2}
   m_PrefabInternal: {fileID: 626292081}
+--- !u!65 &635671390 stripped
+BoxCollider:
+  m_PrefabParentObject: {fileID: 65710746685873334, guid: ed4690881804cd24e824db3feab38cc0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1371375685}
 --- !u!1001 &656397408
 Prefab:
   m_ObjectHideFlags: 0
@@ -4121,6 +4126,11 @@ Prefab:
       propertyPath: score
       value: 
       objectReference: {fileID: 31460415}
+    - target: {fileID: 114093390414959560, guid: ed4690881804cd24e824db3feab38cc0,
+        type: 2}
+      propertyPath: upperBody
+      value: 
+      objectReference: {fileID: 635671390}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed4690881804cd24e824db3feab38cc0, type: 2}
   m_IsPrefabParent: 0
