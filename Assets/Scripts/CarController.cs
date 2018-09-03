@@ -15,6 +15,7 @@ public class CarController : MonoBehaviour
     private bool rotating = false;
     private float rotateAmount = 0;
     private float prevAngle;
+    private int colliderBuffer = 300;
 
     public void ApplyLocalPositionToVisuals(WheelCollider collider)
     {
@@ -22,6 +23,14 @@ public class CarController : MonoBehaviour
         {
             return;
         }
+
+        if (collider.isGrounded && colliderBuffer < 0)
+        {
+            hasLanded();
+            colliderBuffer = 300;
+        }
+
+        --colliderBuffer;
 
         Transform visualWheel = collider.transform.GetChild(0);
 
@@ -117,19 +126,24 @@ public class CarController : MonoBehaviour
     {
         if (collision.collider.tag == "Ground")
         {
-            if (transform.up.y > 0.8)
-            {
-                FindObjectOfType<Score>().TrickLanded(true);
-            }
-            else
-            {
-                FindObjectOfType<Score>().TrickLanded(false);
-            }
-            jumping = false;
-            rotating = false;
-            rotateAmount = 0;
-            prevAngle = transform.localEulerAngles.z;
+            hasLanded();
         }
+    }
+
+    private void hasLanded()
+    {
+        if (transform.up.y > 0.8)
+        {
+            FindObjectOfType<Score>().TrickLanded(true);
+        }
+        else
+        {
+            FindObjectOfType<Score>().TrickLanded(false);
+        }
+        jumping = false;
+        rotating = false;
+        rotateAmount = 0;
+        prevAngle = transform.localEulerAngles.z;
     }
 
     public bool isJumping()
