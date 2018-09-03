@@ -5,10 +5,15 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour {
 
     public Text score;
+    static public string scoreForFinish;
     private int curScore = 0;
     private int bufferScore = 0;
     private Boolean onRail = false;
 
+    private void Start()
+    {
+        scoreForFinish = "0";
+    }
     void Update() {
         if (onRail)
         {
@@ -41,6 +46,7 @@ public class Score : MonoBehaviour {
         if (landed)
         {
             curScore += bufferScore;
+            scoreForFinish = curScore.ToString();
         }
         bufferScore = 0;
         UpdateScoreText();
