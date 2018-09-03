@@ -101,6 +101,16 @@ public class CarController : MonoBehaviour
                 prevAngle = transform.localEulerAngles.z;
             }
         }
+
+        if (Input.GetKey("w") && jumping)
+        {
+            rb.AddTorque(transform.right * 1000);
+        }
+
+        if (Input.GetKey("s") && jumping)
+        {
+            rb.AddTorque(-transform.right * 1000);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
