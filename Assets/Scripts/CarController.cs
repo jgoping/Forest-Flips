@@ -1,5 +1,6 @@
 ﻿// Thanks to the Unity tutorial for the basics of making a car: https://docs.unity3d.com/Manual/WheelColliderTutorial.html
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -55,7 +56,7 @@ public class CarController : MonoBehaviour
 
         if (rotating)
         {
-            if (System.Math.Abs(transform.localEulerAngles.z - prevAngle) > 300)
+            if (Math.Abs(transform.localEulerAngles.z - prevAngle) > 300)
             {
                 prevAngle += (prevAngle < 180) ? 360 : -360;
             }
@@ -63,9 +64,10 @@ public class CarController : MonoBehaviour
                 (transform.localEulerAngles.z - prevAngle) :
                 (prevAngle - transform.localEulerAngles.z);
             prevAngle = transform.localEulerAngles.z;
-            if (System.Math.Abs(rotateAmount) >= 330)
+            if (Math.Abs(rotateAmount) >= 330)
             {
-                FindObjectOfType<Score>().KickFlip();
+                int speed = Convert.ToInt32(Math.Floor(Math.Sqrt(Math.Pow(rb.velocity.x, 2) + Math.Pow(rb.velocity.z, 2))));
+                FindObjectOfType<Score>().KickFlip(speed + 1);
                 rotateAmount = 0;
             }
         }

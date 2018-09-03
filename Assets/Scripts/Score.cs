@@ -30,9 +30,9 @@ public class Score : MonoBehaviour {
         onRail = false;
     }
 
-    public void KickFlip()
+    public void KickFlip(int speed)
     {
-        bufferScore += 50;
+        bufferScore += 25 * speed;
         UpdateScoreText();
     }
 
