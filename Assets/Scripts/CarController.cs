@@ -131,6 +131,11 @@ public class CarController : MonoBehaviour
             prevAngle = transform.localEulerAngles.z;
         }
     }
+
+    public bool isJumping()
+    {
+        return jumping;
+    }
 }
 
 [System.Serializable]

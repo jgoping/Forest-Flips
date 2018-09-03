@@ -15,7 +15,7 @@ public class Score : MonoBehaviour {
         scoreForFinish = "0";
     }
     void Update() {
-        if (onRail)
+        if (onRail && FindObjectOfType<CarController>().isJumping())
         {
             bufferScore += 5;
             UpdateScoreText();
