@@ -58,7 +58,7 @@ public class Tutorial : MonoBehaviour {
         {
             stage = 2;
             tutorialText.text = "Hold A or D in the air to do a flip! \n" +
-                "This will score you 50 points!";
+                "This will score you points based off of your speed!";
             initialScore = Int32.Parse(score.text.Split('+')[0]);
         }
     }
